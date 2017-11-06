@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Negozio</title>
+
+</head>
+<body>
+<h1><center>PREZZI NEGOZIO</center></h1>
+<script type="text/javascript">
+var descrizione = ["penna", "libro", "quaderno","zaino"];
+var prezzo = [2,10,5,10];
+var desc;
+var quantita;
+var somma=0;
+function Acquisizione() 
+{
+	desc = prompt("Inserire l'articolo da acquistare: ");
+	quantita = prompt("Inserire la quantita': ")
+	document.getElementById('Quantita').value = quantita;
+}
+function Somma()
+{
+	for(var i=0;i<descrizione.length;i++)
+	{
+	   if(descrizione[i]==desc)
+	   {
+	   somma=quantita*prezzo[i];
+	   break;
+	   }
+	}
+	document.getElementById('PrezzoFinale').value = somma;
+}
+</script>
+
+<table border="1">
+   <tr>
+	<th>Descrizione</th>
+	<th>Prezzo</th>
+   </tr>
+
+   <tr>
+	<th>Penna</th>
+	<th>2€</th>
+   </tr>
+
+   <tr>
+	<th>Libro</th>
+	<th>10€</th>
+   </tr>
+
+   <tr>
+	<th>Quaderno</th>
+	<th>5€</th>
+   </tr>
+
+   <tr>
+	<th>Zaino</th>
+	<th>20€</th>
+   </tr>
+<form name="form1" action="prezzi2.php" method="post">
+<input type="number" id="PrezzoFinale" name="PrezzoFinale" value="" style="display:none">
+<input type="submit" name="CalcolaPrezzo" value="Calcola prezzo" onclick="Somma()">
+<input type="number" id="Quantita" name="Quantita" value="" style="display:none">
+</form>
+<input type="submit" name="InserisciDati" value="Riempi carrello" onclick="Acquisizione()">
+</body>
+</html>

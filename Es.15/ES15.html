@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<title>Acquista Articoli</title>
+</head>
+<body>
+<form action="Database.php" method="get">
+<h1 align="center">Shop Online</h1>
+<h3>
+DESCRIZIONE<input type = "text" id="descrizione" name = "descrizione" size = "20"/>
+<br />
+<br />
+QUANTITA<input type="number" id="quantita" name="quantita" min="1" max="100"/>
+<br />
+<br />
+<input type="button" onclick="prezzo()" value="Calcolo Prezzo Totale">
+<br />
+<br />
+PREZZO TOTALE<input type="number" id="prezzoFinale" name="prezzoFinale" value="" />
+</h3>
+<input type = "submit" name = "invio" value="Calcola Sconto"/>
+<input type = "reset" name = "cancella" size = "Annulla" />
+<br />
+<br />
+<table width="50%" border="1" align="left" bgcolor="#FFFFFF">
+	<tr><td>Descrizione</td><td>Prezzo</td></tr>
+   	<tr><td>Penna</td><td>2$</td></tr>
+    	<tr><td>Matita</td><td>10$</td></tr>
+    	<tr><td>Quaderno</td><td>5$</td></tr>
+</table>
+<script>
+function prezzo()
+{
+	prezzi=new Array(2,10,5);
+	var prezzoFinale;
+	var quantita=document.getElementById("quantita").value;
+	var descrizione=document.getElementById("descrizione").value;
+	if(descrizione=="Penna"||descrizione=="penna")
+	{
+		prezzoFinale=(quantita*prezzi[0]);
+	}
+	if(descrizione=="Matita"||descrizione=="matita")
+	{
+		prezzoFinale=(quantita*prezzi[1]);
+	}
+	if(descrizione=="Quaderno"||descrizione=="quaderno")
+	{
+		prezzoFinale=(quantita*prezzi[2]);
+	}
+	document.getElementById("prezzoFinale").value=prezzoFinale;
+}
+</script>
+</form>
+</body>
+</html>
